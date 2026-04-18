@@ -1,34 +1,59 @@
-# 把 theme: minima 改成
-remote_theme: cotes2020/jekyll-theme-chirpy
+# ==========================================
+# 站点基础配置
+# ==========================================
+title: 没有夜空的星星
+subtitle: 记录代码与生活的一点点光
+name: noskystar
+description: "一个程序员的技术笔记与思考碎片"
+url: "https://noskystar.github.io"
+baseurl: ""
 
-# 加上这些配置
-theme_mode: dark          # 默认暗黑模式
-lang: zh-CN
-timezone: Asia/Shanghai
-
-# 个人资料
+# ==========================================
+# 作者信息（minima 主题专用格式）
+# ==========================================
 author:
   name: noskystar
-  bio: "在代码宇宙里寻找属于自己的光 ✨"
-  location: "地球某处"
-  avatar: ""             # 可以放个星星图片链接
-  links:
-    - label: GitHub
-      icon: fab fa-github
-      url: https://github.com/noskystar
 
-# 插件（必须加）
+# ==========================================
+# 社交链接（minima 能识别的格式）
+# ==========================================
+github_username: noskystar
+
+# ==========================================
+# 主题配置
+# ==========================================
+theme: minima
 plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-archives
+  - jekyll-sitemap
 
-# 分页设置
-paginate: 10
-paginate_path: /page:num/
+# ==========================================
+# 构建设置
+# ==========================================
+timezone: Asia/Shanghai
+locale: zh-CN
+markdown: kramdown
+highlighter: rouge
 
-# 社交（可选）
-github_username: noskystar
+# ==========================================
+# 分页（可选）
+# ==========================================
+paginate: 5
+paginate_path: "/page:num/"
+
+# ==========================================
+# 默认设置
+# ==========================================
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: noskystar
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
