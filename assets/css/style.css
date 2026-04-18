@@ -1,0 +1,366 @@
+/* ==========================================
+   🌟 没有夜空的星星 - 精致星空主题
+   直接 CSS 版本（绕过 Jekyll SASS）
+   ========================================== */
+
+/* 配色系统 */
+:root {
+  --bg-primary: #0a0c10;
+  --bg-secondary: #161b22;
+  --bg-card: #1c2128;
+  --bg-hover: #21262d;
+  --text-primary: #e6edf3;
+  --text-secondary: #7d8590;
+  --text-muted: #6e7681;
+  --accent-gold: #ffd700;
+  --accent-cyan: #39d0d8;
+  --accent-pink: #ff7b72;
+  --accent-blue: #58a6ff;
+  --accent-purple: #bc8cff;
+  --border-color: #30363d;
+  --star-glow: rgba(255, 215, 0, 0.3);
+}
+
+/* 基础样式 */
+body {
+  background: linear-gradient(180deg, var(--bg-primary) 0%, #0d1117 50%, var(--bg-primary) 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* 星空背景装饰 */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.3), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.3), transparent),
+    radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 230px 80px, rgba(255,255,255,0.3), transparent),
+    radial-gradient(2px 2px at 300px 150px, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 350px 50px, rgba(255,255,255,0.3), transparent),
+    radial-gradient(2px 2px at 400px 200px, rgba(255,255,255,0.2), transparent);
+  background-repeat: repeat;
+  background-size: 400px 250px;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+/* 链接样式 */
+a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+a:hover {
+  color: var(--accent-gold);
+  text-shadow: 0 0 10px var(--star-glow);
+}
+
+/* 标题系统 */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+h1 {
+  font-size: 2rem;
+  background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--accent-cyan);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5em;
+}
+
+h3 {
+  font-size: 1.25rem;
+  color: var(--accent-purple);
+}
+
+/* 站点头部 */
+.site-header {
+  border-bottom: 1px solid var(--border-color);
+  background: linear-gradient(180deg, rgba(22, 27, 34, 0.95) 0%, rgba(10, 12, 16, 0.98) 100%);
+  min-height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-title {
+  color: var(--accent-gold) !important;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+/* 导航 */
+.site-nav .page-link {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.site-nav .page-link:hover {
+  color: var(--accent-cyan);
+  background: rgba(57, 208, 216, 0.1);
+}
+
+/* 主页特殊样式 */
+.star-home {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, 
+    rgba(26, 26, 46, 0.9) 0%, 
+    rgba(22, 33, 62, 0.95) 50%, 
+    rgba(15, 52, 96, 0.9) 100%);
+  border-radius: 16px;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(57, 208, 216, 0.2);
+  box-shadow: 0 0 60px rgba(57, 208, 216, 0.1), inset 0 0 60px rgba(255, 215, 0, 0.05);
+}
+
+.star-home h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--accent-gold) 0%, #fff 50%, var(--accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.star-home .subtitle {
+  color: var(--accent-cyan);
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.star-home .description {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* 分区标题 */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--accent-cyan);
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.75rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 关于区域 */
+.about-section {
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--accent-cyan);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 文章列表 - 卡片式 */
+.post-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post-list > li {
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(28, 33, 40, 0.8) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.post-list > li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(57, 208, 216, 0.1);
+  border-color: rgba(57, 208, 216, 0.3);
+}
+
+.post-link {
+  color: var(--text-primary) !important;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.post-link:hover {
+  color: var(--accent-cyan) !important;
+}
+
+.post-meta {
+  color: var(--accent-gold);
+  font-size: 0.85rem;
+}
+
+.post-list p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* 代码块样式 */
+pre {
+  background: linear-gradient(135deg, #1a1f29 0%, #161b22 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+code {
+  background: rgba(255, 123, 114, 0.15);
+  color: var(--accent-pink);
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+pre code {
+  background: none;
+  color: var(--text-primary);
+  padding: 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* 引用块 */
+blockquote {
+  border-left: 4px solid var(--accent-gold);
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(57, 208, 216, 0.05) 100%);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+/* 表格样式 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+th {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-hover) 100%);
+  color: var(--accent-cyan);
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 2px solid var(--border-color);
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+tr:hover td {
+  background: rgba(57, 208, 216, 0.05);
+}
+
+/* 页脚 */
+.site-footer {
+  border-top: 1px solid var(--border-color);
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  padding: 3rem 0;
+  color: var(--text-muted);
+  margin-top: 4rem;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 600px) {
+  .site-title {
+    font-size: 1.1rem;
+  }
+  
+  .star-home {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .star-home h1 {
+    font-size: 1.8rem;
+  }
+  
+  .post-list > li {
+    padding: 1.25rem;
+  }
+  
+  pre {
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+  
+  table {
+    font-size: 0.9rem;
+  }
+  
+  th, td {
+    padding: 0.75rem;
+  }
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
+  border-radius: 5px;
+  border: 2px solid var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--accent-gold), var(--accent-cyan));
+}
