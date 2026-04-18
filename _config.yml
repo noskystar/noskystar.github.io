@@ -1,0 +1,43 @@
+title: 没有夜空的星星
+subtitle: 记录代码与生活的一点点光
+name: noskystar
+description: 一个程序员的技术笔记与思考碎片
+url: https://noskystar.github.io
+repository: noskystar/noskystar.github.io
+
+# 作者信息
+author:
+  name: noskystar
+  bio: 在代码宇宙里寻找属于自己的光
+  location: 地球某处
+  links:
+    - label: GitHub
+      icon: fab fa-github
+      url: https://github.com/noskystar
+
+# 主题配置
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# 分页
+paginate: 5
+paginate_path: /page:num/
+
+# 默认设置
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author_profile: true
+      read_time: true
+      comments: true
+
+# 社交链接（可选）
+github_username: noskystar
+
+# 时区
+timezone: Asia/Shanghai
