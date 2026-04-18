@@ -163,9 +163,88 @@ captureScreen("/sdcard/screenshot.png");
 
 ---
 
-## 三、AI + 手机控制的新兴方案
+## 三、AI驱动的下一代自动化框架
 
-### 4. 大模型驱动的Agent框架
+### 1. Midscene —— 字节跳动的AI自动化明星 🌟
+
+| 属性 | 详情 |
+|------|------|
+| **官网** | https://midscenejs.com/zh/ |
+| **GitHub** | https://github.com/web-infra-dev/midscene |
+| **出品** | 字节跳动（ByteDance）web-infra团队 |
+| **Star** | 12k+ ⭐ |
+| **趋势榜** | GitHub Trending 第2名 |
+| **定位** | AI驱动、视觉感知的全平台UI自动化 |
+| **支持** | Web、PC、Mobile（Android/iOS/鸿蒙） |
+
+**核心优势：**
+
+**① 自然语言控制**
+无需编写复杂的定位代码，直接用自然语言描述操作：
+```javascript
+// 使用自然语言控制手机
+await agent.aiAction('点击"设置"按钮');
+await agent.aiAction('在搜索框输入"天气"');
+await agent.aiAction('向上滑动查看更多信息');
+```
+
+**② 多模型支持**
+Midscene 支持多种大模型，可根据场景灵活选择：
+
+| 模型 | 厂商 | 特点 |
+|------|------|------|
+| **豆包 Seed Vision** | 字节跳动 | 针对UI元素识别优化，国内首选 |
+| **Qwen3-VL** | 阿里云 | 性价比高，中文理解强 |
+| **Gemini-3-Pro** | Google | 视觉能力强，全面支持 |
+
+**③ 多端统一**
+一套API控制多个平台：
+- **Web**: 集成 Puppeteer / Playwright
+- **PC**: 控制 macOS、Windows、Linux 桌面应用
+- **Mobile**: Android、iOS、鸿蒙设备自动化
+
+**④ 丰富的工具链**
+- **可视化报告**: 自动化流程回溯
+- **Playground**: 交互式调试环境
+- **Skills & MCP**: 支持AI编程工具和MCP Server
+- **YAML脚本**: 用YAML编写自动化流程
+
+**Mobile端快速上手：**
+```javascript
+import { Agent } from '@midscene/android';
+
+const agent = new Agent({
+  model: 'doubao-seed',  // 使用豆包模型
+});
+
+// 连接设备
+await agent.connect();
+
+// 自然语言操作
+await agent.aiAction('打开微信');
+await agent.aiAction('点击通讯录');
+await agent.aiAction('找到张三并发送"你好"');
+
+// 断言验证
+await agent.aiAssert('看到聊天界面中的"你好"消息');
+```
+
+**与uiautomator2对比：**
+
+| 特性 | Midscene | uiautomator2 |
+|------|----------|--------------|
+| **控制方式** | 自然语言 | 代码定位 |
+| **学习曲线** | 极低 | 中等 |
+| **AI原生** | ✅ 天生为AI设计 | 需要二次封装 |
+| **多模型** | ✅ 支持 | 需自行集成 |
+| **跨平台** | ✅ Web/PC/Mobile | 仅Android |
+| **可视化** | ✅ 报告+Playground | 需搭配其他工具 |
+
+---
+
+## 四、AI + 手机控制的新兴方案
+
+### 2. 大模型驱动的Agent框架
 
 随着多模态大模型（GPT-4V、GLM-4V、Qwen-VL）的发展，**纯视觉驱动**的手机控制成为趋势：
 
@@ -239,34 +318,38 @@ def ai_exploratory_test(d: Device):
 
 ### 框架对比表
 
-| 框架 | 技术栈 | 学习曲线 | 适用场景 | AI友好度 |
-|------|--------|----------|----------|----------|
-| uiautomator2 | Python | ⭐⭐ | 开发/测试 | ⭐⭐⭐⭐ |
-| SoloPi | App(录制) | ⭐ | 测试/运维 | ⭐⭐⭐ |
-| AutoX.js | JavaScript | ⭐⭐ | 个人自动化 | ⭐⭐⭐ |
-| Appium | 多语言 | ⭐⭐⭐ | 企业级测试 | ⭐⭐⭐ |
+| 框架 | 技术栈 | 学习曲线 | 适用场景 | AI友好度 | 跨平台 |
+|------|--------|----------|----------|----------|--------|
+| **Midscene** | JavaScript/TS | ⭐ | AI自动化/测试 | ⭐⭐⭐⭐⭐ | ✅ Web/PC/Mobile |
+| uiautomator2 | Python | ⭐⭐ | 开发/测试 | ⭐⭐⭐⭐ | ❌ 仅Android |
+| SoloPi | App(录制) | ⭐ | 测试/运维 | ⭐⭐⭐ | ❌ 仅Android |
+| AutoX.js | JavaScript | ⭐⭐ | 个人自动化 | ⭐⭐⭐ | ❌ 仅Android |
+| Appium | 多语言 | ⭐⭐⭐ | 企业级测试 | ⭐⭐⭐ | ✅ iOS/Android |
 
 ### 选型建议
 
-**情况1：Python开发者 + AI项目**
+**情况1：AI Agent开发 / 自然语言控制**
+→ 选 **Midscene** ⭐ **强烈推荐**
+- 字节跳动出品，GitHub 12k+ Stars
+- 自然语言控制，无需学习复杂API
+- 原生支持多模型（豆包/Qwen/Gemini）
+- 跨平台：一套代码控制Web/PC/Mobile
+- 可视化报告和Playground调试
+
+**情况2：Python开发者 + 传统自动化**
 → 选 **uiautomator2**
 - 生态丰富，与Python AI生态无缝衔接
 - 文档完善，社区活跃
 
-**情况2：测试工程师 + 录制回放**
-→ 选 **SoloPi**
-- 无需编程，手机端直接操作
-- 性能测试一站解决
+**情况3：测试工程师 + 录制回放**
+→ 选 **SoloPi** 或 **Midscene**
+- SoloPi：零代码录制，性能测试一站解决
+- Midscene：自然语言描述测试步骤，AI自动执行
 
-**情况3：前端开发者 + 轻量需求**
+**情况4：前端开发者 + 轻量需求**
 → 选 **AutoX.js**
 - JavaScript语法熟悉
 - 脚本分享方便
-
-**情况4：AI Agent开发**
-→ **uiautomator2 + 多模态LLM**
-- 截图获取最方便
-- API设计最符合AI调用习惯
 
 ---
 
@@ -275,6 +358,7 @@ def ai_exploratory_test(d: Device):
 ### 1. 与国产大模型深度集成
 
 预计2025年，将出现：
+- **Midscene + 豆包** 官方深度集成，端侧模型部署
 - **GLM + uiautomator2** 官方集成方案
 - **通义千问** 推出手机Agent SDK
 - **文心一言** 支持自动化工作流
@@ -282,74 +366,60 @@ def ai_exploratory_test(d: Device):
 ### 2. 端侧AI部署
 
 随着手机算力提升：
-- 小型LLM（Qwen-1.8B、ChatGLM3-6B）端侧运行
+- **Midscene** 支持端侧小模型（Qwen-1.8B、豆包端侧版）
 - 本地视觉模型识别UI元素
 - 无需联网即可实现AI控制
+- 隐私数据不出设备
 
 ### 3. 低代码/无代码化
 
+- **Midscene YAML**：自然语言直接生成自动化流程
 - SoloPi式的录制增强
-- 自然语言直接生成自动化流程
 - "帮我订外卖" → AI自动完成全部操作
-
----
-
-## 六、实践建议
-
-### 快速上手路径
-
-**Day 1-2：环境搭建**
-```bash
-# 安装uiautomator2
-pip install uiautomator2
-
-# 连接手机测试
-python -c "import uiautomator2 as u2; d = u2.connect(); print(d.info)"
-```
-
-**Day 3-5：基础自动化**
-- 实现自动打开App
-- 完成登录流程
-- 截图获取
-
-**Day 6-7：接入AI**
-- 集成大模型API
-- 实现截图→理解→操作的闭环
-- 处理异常情况
-
-### 注意事项
-
-⚠️ **权限问题**
-- 国内Android系统（MIUI、ColorOS等）可能需要额外权限
-- 无障碍服务需要手动开启
-
-⚠️ **稳定性**
-- 微信等App有反自动化机制
-- 需要模拟人类操作间隔
-
-⚠️ **合规性**
-- 遵守目标App的使用协议
-- 不要用于恶意刷单、薅羊毛
 
 ---
 
 ## 七、总结
 
-国产Android自动化框架在**易用性**和**本土化**方面表现出色：
+国内AI手机控制框架已进入**2.0时代**：
 
-- **uiautomator2** 是开发者首选，生态最完善
-- **SoloPi** 是测试工程师利器，零代码上手
-- **AutoX.js** 满足个人自动化需求
+### 🌟 新一代：AI原生框架
+**Midscene**（字节跳动）代表了未来方向：
+- ✅ 自然语言控制，零学习成本
+- ✅ 原生多模型支持（豆包/Qwen/Gemini）
+- ✅ 跨平台：Web/PC/Mobile一套代码
+- ✅ GitHub 12k+ Stars，国内最火AI自动化框架
 
-结合国内多模态大模型（GLM-4V、Qwen-VL等），**AI控制手机**的场景正在快速成熟。对于开发者来说，现在正是入场的好时机。
+### 🛠️ 传统框架：稳定可靠
+- **uiautomator2**：开发者首选，Python生态完善
+- **SoloPi**：测试工程师利器，录制回放零代码
+- **AutoX.js**：个人自动化，JavaScript轻量方案
+
+### 🚀 选型建议
+
+| 场景 | 推荐框架 |
+|------|----------|
+| **AI Agent开发** | **Midscene** ⭐ |
+| **自然语言控制** | **Midscene** ⭐ |
+| **跨平台自动化** | **Midscene** ⭐ |
+| **Python开发者** | uiautomator2 |
+| **录制回放测试** | SoloPi / Midscene |
+| **前端轻量需求** | AutoX.js |
+
+### 💡 未来已来
+随着**Midscene**等AI原生框架的成熟，"用自然语言控制手机"已从实验室走向实用。字节跳动等大厂的入场，标志着这个领域的爆发期已经到来。
+
+对于开发者来说，**现在学习Midscene，就是提前布局AI自动化时代**。
 
 ---
 
 **参考链接：**
+- **Midscene**（强烈推荐）: https://midscenejs.com/zh/
+- Midscene GitHub: https://github.com/web-infra-dev/midscene
 - uiautomator2: https://github.com/openatx/uiautomator2
 - SoloPi: https://github.com/alipay/SoloPi
 - AutoX.js: https://github.com/kkevsekk1/AutoX
-- GLM-4V: https://github.com/THUDM/GLM-4
+- 豆包模型: https://www.volcengine.com/product/doubao
 - Qwen-VL: https://github.com/QwenLM/Qwen-VL
 
 ---
