@@ -364,3 +364,420 @@ tr:hover td {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, var(--accent-gold), var(--accent-cyan));
 }
+/* ==========================================
+   💻 终端命令行主题 - 文章详情页样式
+   ========================================== */
+
+/* 文章页基础 - 终端黑底 */
+.post-content {
+  background: #0c0c0c;
+  color: #00ff00;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 0, 0.1),
+    inset 0 0 60px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 扫描线效果 */
+.post-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 终端窗口标题栏 */
+.post-header {
+  background: linear-gradient(180deg, #2d2d2d 0%, #1a1a1a 100%);
+  border-bottom: 1px solid #444;
+  padding: 0.75rem 1rem;
+  margin: -2rem -2rem 2rem -2rem;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.post-header::before {
+  content: "● ● ●";
+  color: #666;
+  font-size: 0.8rem;
+  letter-spacing: 0.3rem;
+}
+
+.post-header::after {
+  content: "~/blog/article.md — vim";
+  color: #888;
+  font-size: 0.85rem;
+  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* 文章标题 - 绿色高亮 */
+.post-title {
+  color: #00ff00;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed #00ff00;
+}
+
+/* 文章元信息 - 灰色次要信息 */
+.post-meta {
+  color: #666;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.post-meta::before {
+  content: "$ ls -la ";
+  color: #00ff00;
+}
+
+/* 段落 - 命令行文本 */
+.post-content p {
+  color: #0f0;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+/* 段落前加命令提示符 */
+.post-content p::before {
+  content: "> ";
+  color: #00ff00;
+  position: absolute;
+  left: 0;
+  opacity: 0.7;
+}
+
+/* 标题样式 - 不同层级不同颜色 */
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid;
+}
+
+.post-content h1 {
+  color: #00ff00;
+  font-size: 1.5rem;
+  border-left-color: #00ff00;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.post-content h2 {
+  color: #00ffff;
+  font-size: 1.3rem;
+  border-left-color: #00ffff;
+}
+
+.post-content h3 {
+  color: #ff00ff;
+  font-size: 1.1rem;
+  border-left-color: #ff00ff;
+}
+
+.post-content h4 {
+  color: #ffff00;
+  font-size: 1rem;
+  border-left-color: #ffff00;
+}
+
+/* 代码块 - 终端窗口 */
+.post-content pre {
+  background: #000;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  position: relative;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 0, 0.05),
+    inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+/* 代码块顶部模拟终端标题栏 */
+.post-content pre::before {
+  content: "bash — 80x24";
+  display: block;
+  background: #333;
+  color: #888;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.75rem;
+  margin: -1.5rem -1.5rem 1rem -1.5rem;
+  border-radius: 6px 6px 0 0;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* 代码块内的代码 */
+.post-content pre code {
+  background: transparent;
+  color: #0f0;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.2);
+}
+
+/* 行内代码 */
+.post-content code {
+  background: rgba(0, 255, 0, 0.1);
+  color: #00ff00;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.9em;
+  border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+/* 语法高亮 - 终端风格 */
+.post-content .highlight .k { color: #ff00ff; }  /* 关键字 */
+.post-content .highlight .n { color: #00ffff; }  /* 变量名 */
+.post-content .highlight .s { color: #ffff00; }  /* 字符串 */
+.post-content .highlight .c { color: #666; font-style: italic; }  /* 注释 */
+.post-content .highlight .m { color: #ff6600; }  /* 数字 */
+.post-content .highlight .o { color: #00ff00; }  /* 操作符 */
+.post-content .highlight .p { color: #888; }  /* 标点 */
+
+/* 引用块 - 警告框风格 */
+.post-content blockquote {
+  background: rgba(255, 165, 0, 0.1);
+  border: 1px solid #ffa500;
+  border-left: 4px solid #ffa500;
+  border-radius: 0 6px 6px 0;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  color: #ffa500;
+  font-family: 'JetBrains Mono', monospace;
+  position: relative;
+}
+
+.post-content blockquote::before {
+  content: "⚠ WARNING: ";
+  color: #ff6600;
+  font-weight: bold;
+}
+
+/* 信息引用 */
+.post-content blockquote:has(strong:contains("注意")),
+.post-content blockquote:has(strong:contains("提示")) {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: #00ffff;
+  color: #00ffff;
+}
+
+.post-content blockquote:has(strong:contains("注意"))::before,
+.post-content blockquote:has(strong:contains("提示"))::before {
+  content: "ℹ INFO: ";
+  color: #00ffff;
+}
+
+/* 表格 - 终端表格 */
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: #000;
+  border: 1px solid #333;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+}
+
+.post-content th {
+  background: #1a1a1a;
+  color: #00ff00;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid #00ff00;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+}
+
+.post-content td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #333;
+  color: #0f0;
+}
+
+.post-content tr:hover td {
+  background: rgba(0, 255, 0, 0.05);
+}
+
+/* 列表 - 终端列表 */
+.post-content ul,
+.post-content ol {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.post-content li {
+  color: #0f0;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.post-content ul li::marker {
+  color: #00ff00;
+  content: "▸ ";
+}
+
+.post-content ol li::marker {
+  color: #00ffff;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* 链接 - 可点击的命令 */
+.post-content a {
+  color: #00ffff;
+  text-decoration: none;
+  border-bottom: 1px dotted #00ffff;
+  font-family: 'JetBrains Mono', monospace;
+  position: relative;
+}
+
+.post-content a::before {
+  content: "./";
+  color: #00ff00;
+  opacity: 0.7;
+}
+
+.post-content a:hover {
+  color: #ff00ff;
+  border-bottom-color: #ff00ff;
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+/* 水平线 - 分隔符 */
+.post-content hr {
+  border: none;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    #00ff00,
+    #00ff00 5px,
+    transparent 5px,
+    transparent 10px
+  );
+  margin: 2rem 0;
+  position: relative;
+}
+
+.post-content hr::before {
+  content: "# ";
+  color: #00ff00;
+  position: absolute;
+  left: 0;
+  top: -0.6rem;
+  background: #0c0c0c;
+  padding-right: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* 图片 - ASCII艺术风格 */
+.post-content img {
+  max-width: 100%;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: #000;
+  padding: 0.5rem;
+  filter: contrast(1.1) brightness(0.9);
+}
+
+.post-content img:hover {
+  border-color: #00ff00;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+/* 光标闪烁效果 - 只在段落末尾 */
+.post-content p:last-of-type::after {
+  content: "▋";
+  color: #00ff00;
+  animation: blink 1s step-end infinite;
+  margin-left: 0.2rem;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* 标签 - 系统标签风格 */
+.post-content .post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #333;
+}
+
+.post-content .post-tag {
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid #00ff00;
+  color: #00ff00;
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+}
+
+.post-content .post-tag::before {
+  content: "#";
+  color: #666;
+  margin-right: 0.2rem;
+}
+
+/* 响应式 - 移动端终端 */
+@media screen and (max-width: 600px) {
+  .post-content {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .post-header {
+    margin: -1rem -1rem 1rem -1rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .post-title {
+    font-size: 1.2rem;
+  }
+  
+  .post-content pre {
+    padding: 1rem;
+  }
+  
+  .post-content pre::before {
+    margin: -1rem -1rem 0.5rem -1rem;
+  }
+}
