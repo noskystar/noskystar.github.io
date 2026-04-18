@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "国内AI控制手机开源框架调研"
-date: 2026-04-18 10:00:00 +0800
+date: 2026-04-18 09:00:00 +0800
 categories: 技术调研
 tags: [AI, 移动自动化, 国产框架, Android, 手机控制]
 ---

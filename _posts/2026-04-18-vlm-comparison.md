@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "多模态视觉模型对比评测：GPT-4V vs Qwen-VL vs Gemini"
-date: 2026-04-18 15:00:00 +0800
+date: 2026-04-18 02:00:00 +0800
 categories: 技术评测
 tags: [多模态模型, 视觉语言模型, GPT-4V, Qwen-VL, Gemini, 对比评测]
 ---

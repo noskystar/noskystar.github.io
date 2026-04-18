@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "基于 Midscene 的自动化测试平台搭建实录"
-date: 2026-04-18 17:00:00 +0800
+date: 2026-04-18 04:00:00 +0800
 categories: 工程实战
 tags: [自动化测试, Midscene, 测试平台, CI/CD, 企业级]
 ---
